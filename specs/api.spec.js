@@ -82,10 +82,10 @@ test('Creating orders', async () => {
         expect(resp.data.track).toBeTruthy() 
 });
 
-test('Incorrect password when searching for the courier id', async () => {
+test('Get the number of courier orders "":', async () => {
     const config = {
         method: 'get',
-        url: 'https://qa-scooter.praktikum-services.ru/api/v1/courier/:704541/ordersCount',
+        url: 'https://qa-scooter.praktikum-services.ru//api/v1/courier/555/ordersCount',
     }
 
     try {
@@ -94,7 +94,8 @@ test('Incorrect password when searching for the courier id', async () => {
     catch (e) {
         console.log(e);
         expect(e.response.status).toEqual(404);
-        expect(e.response.data.message).toEqual('Not Found.')
+        expect(e.response.data.code).toEqual(404);
+        expect(e.response.data.message).toEqual('Courier not found')
     }
 });
 
