@@ -12,7 +12,7 @@ test('search for the couriers Id Login in the system', async () => {
           },
     }
         const resp = await axios(config);
-        console.log(resp);
+        console.log(resp.data);
         expect(resp.status).toEqual(200);
 
 });
@@ -82,7 +82,7 @@ test('Creating orders', async () => {
         expect(resp.data.track).toBeTruthy() 
 });
 
-test('Get the number of courier orders "":', async () => {
+test.only('Get the number of courier orders "Courier not found":', async () => {
     const config = {
         method: 'get',
         url: 'https://qa-scooter.praktikum-services.ru//api/v1/courier/555/ordersCount',
